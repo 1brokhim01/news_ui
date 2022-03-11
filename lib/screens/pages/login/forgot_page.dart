@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:home33/widgets/signUp_icons1.dart';
-import '../../core/constants/m_p.dart';
-import '../../widgets/sized_box.dart';
+import '../../../core/constants/m_p.dart';
+import '../../../widgets/sized_box.dart';
 
 class ForgotPage extends StatefulWidget {
   const ForgotPage({Key? key}) : super(key: key);

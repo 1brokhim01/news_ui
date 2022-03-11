@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:home33/screens/my_home_page.dart';
-import 'package:home33/screens/pages/forgot_page.dart';
-import 'package:home33/screens/pages/interests_page.dart';
-import 'package:home33/screens/pages/sign_up.dart';
-import 'package:home33/screens/pages/signIn.dart';
-import 'package:home33/screens/pages/therms_info_page.dart';
+import 'package:home33/screens/pages/login/forgot_page.dart';
+import 'package:home33/screens/pages/login/interests_page.dart';
+import 'package:home33/screens/pages/login/sign_up.dart';
+import 'package:home33/screens/pages/login/signIn.dart';
+import 'package:home33/screens/pages/login/therms_info_page.dart';
 
 class MyRoutes {
   Route? onGenerateRoute(RouteSettings s) {

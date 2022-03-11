@@ -20,7 +20,7 @@ class _InterestsPageState extends State<InterestsPage> {
             sized_box(80, 0),
             const Text(
               "Interests",
-              style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20),
+              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
             ),
             SizedBox(
               width: double.infinity,
@@ -58,7 +58,9 @@ class _InterestsPageState extends State<InterestsPage> {
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(25),
                         )),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, "/");
+                    },
                     child: const Text("Start"),
                   ),
                 ),

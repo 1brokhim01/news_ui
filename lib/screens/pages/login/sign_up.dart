@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
-import 'package:home33/screens/pages/forgot_page.dart';
-import 'package:home33/widgets/signUp_icons1.dart';
+import 'package:home33/core/constants/m_p.dart';
+import 'package:home33/screens/pages/login/therms_info_page.dart';
+import 'package:home33/widgets/signUp_icons_container.dart';
+import 'package:home33/widgets/sized_box.dart';
 
-import '../../core/constants/m_p.dart';
-import '../../widgets/signUp_icons_container.dart';
-import '../../widgets/sized_box.dart';
-
-class SignInPage extends StatefulWidget {
-  const SignInPage({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  _SignInPageState createState() => _SignInPageState();
+  _SignUpState createState() => _SignUpState();
 }
 
-class _SignInPageState extends State<SignInPage> {
+class _SignUpState extends State<SignUp> {
+  TextEditingController _userName_Controller = TextEditingController();
+  TextEditingController _email_Controller = TextEditingController();
+  TextEditingController _password_Controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,35 +35,26 @@ class _SignInPageState extends State<SignInPage> {
             ),
             sized_box(30, 0),
             TextFormField(
+              controller: _userName_Controller,
               decoration: const InputDecoration(
                 hintText: "Username",
               ),
             ),
             sized_box(30, 0),
             TextFormField(
+              controller: _email_Controller,
               decoration: const InputDecoration(
                 hintText: "Email",
               ),
             ),
             sized_box(30, 0),
             TextFormField(
-              decoration: InputDecoration(
+              controller: _password_Controller,
+              decoration: const InputDecoration(
                 hintText: "Password",
-                suffixIcon: IconButton(
-                    onPressed: () {}, icon: Icon(Icons.remove_red_eye_sharp)),
               ),
             ),
-            Row(
-              children: [
-                TextButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, "/forgot");
-                  },
-                  child: const Text("Forgot password"),
-                ),
-              ],
-            ),
-            sized_box(30, 0),
+            sized_box(70, 0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -71,13 +63,14 @@ class _SignInPageState extends State<SignInPage> {
                   w: 150,
                   child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPage()));
+                      Navigator.restorablePushReplacementNamed(
+                          context, "/signIn");
                     },
                     style: ElevatedButton.styleFrom(
                         primary: Colors.black,
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(25))),
-                    child: const Text("Sign In"),
+                    child: const Text("Sign Up"),
                   ),
                 ),
               ],
@@ -90,16 +83,30 @@ class _SignInPageState extends State<SignInPage> {
               ],
             ),
             sized_box(30, 0),
-            signUp_icon_container1(),
+            signUp_icon_container(),
             sized_box(25, 0),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
                 Text(
-                  "Don't have an account? Register",
+                  "By signing up to News24 you are accepting our",
+                  style: TextStyle(
+                    fontSize: 10,
+                  ),
                 ),
               ],
             ),
+            TextButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => ThermsInfoPage()));
+                },
+                child: const Text(
+                  "Terms & Conditions",
+                  style: TextStyle(color: Colors.black),
+                ))
           ],
         ),
       ),
