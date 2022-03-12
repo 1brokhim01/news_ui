@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:home33/screens/pages/settings_navigator/about_page.dart';
+import 'package:home33/screens/pages/settings_navigator/accaunt_page.dart';
 import 'package:home33/screens/pages/settings_navigator/darkMode_page.dart';
 import 'package:home33/screens/pages/settings_navigator/logOut_page.dart';
 import 'package:home33/screens/pages/settings_navigator/notification_page.dart';
@@ -44,7 +45,7 @@ class _SettingsState extends State<Settings> {
             txt: "Accaunt",
             onPress: () {
               Navigator.push(context,
-                  MaterialPageRoute(builder: (context) => const SettingsProfile()));
+                  MaterialPageRoute(builder: (context) => const SettingsAccount()));
             },
           ),
           settings_card(

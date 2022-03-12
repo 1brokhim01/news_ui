@@ -21,6 +21,9 @@ class _SearchPageState extends State<SearchPage> {
             child: TextFormField(
               controller: _textController,
               decoration: InputDecoration(
+                border: OutlineInputBorder(
+                  borderRadius:BorderRadius.circular(25)
+                ),
                 hintText: "Search",
                 suffixIcon: IconButton(
                   onPressed: () {},

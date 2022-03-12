@@ -5,6 +5,8 @@ import 'package:home33/screens/pages/row_class/currency_page.dart';
 import 'package:home33/screens/pages/row_class/row_news_page.dart';
 import 'package:home33/service/info_service.dart';
 import 'package:home33/widgets/elevated_button.dart';
+import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart';
 import 'package:home33/widgets/sized_box.dart';
 
 class HomePage extends StatefulWidget {
@@ -92,15 +94,18 @@ class _HomePageState extends State<HomePage> {
                 future: UsersInfo.getData(),
                 builder: (context, AsyncSnapshot<List<Posts>> snapshot) {
                   if (!snapshot.hasData) {
+                    print("Data kelayapti ...");
                     return const Center(
                       child: CircularProgressIndicator.adaptive(),
                     );
                   } else if (snapshot.hasError) {
+                    print("Data keldi !!!");
                     return const Center(
                       child: Text("No Server"),
                     );
                   } else {
                     var data = snapshot.data;
+                    print(data![0].body!.toString());
                     return Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
@@ -129,16 +134,15 @@ class _HomePageState extends State<HomePage> {
                                             fit: BoxFit.cover,
                                           )),
                                       SizedBox(
-                                        height: MediaQuery.of(context).size.height,
+                                        height:
+                                            MediaQuery.of(context).size.height,
                                         width: 210,
                                         child: Padding(
-                                          padding:
-                                              const EdgeInsets.all(8.0),
+                                          padding: const EdgeInsets.all(8.0),
                                           child: ListView(
                                             children: [
-                                              Text(data![index]
-                                                  .body!
-                                                  .toString()),
+                                              Text(
+                                                  data[index].body!.toString()),
                                             ],
                                           ),
                                         ),
@@ -148,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               );
                             },
-                            itemCount: data!.length,
+                            itemCount: data.length,
                           ),
                         ),
                       ],
